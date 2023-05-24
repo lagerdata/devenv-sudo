@@ -1,0 +1,17 @@
+version: '3.7'
+
+services:
+  sudo_dev_service:
+    image: lagerdata/devenv-sudo:latest
+    ports:
+      - "8080:8080"    
+    command: /bin/bash
+    environment:
+      - CI=true
+      - GITHUB_RUN_ID=1
+    tty: true
+    volumes:
+      - ..:/github/workspace/
+      - type: bind
+        source: ${HOME}/.lager
+        target: /root/.lager

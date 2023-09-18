@@ -13,7 +13,10 @@ RUN apt-get update  \
 	python3-pip \
 	gcc-arm-none-eabi=15:9-2019-q4-0ubuntu1 \
 	ruby=1:2.7+1 \
-	libusb-1.0
+	libusb-1.0 \
+	git
+
+RUN	git config --global --add safe.directory /github/workspace
 
 ENV GNU_INSTALL_ROOT /usr/bin/
 ENV GNU_PREFIX arm-none-eabi
